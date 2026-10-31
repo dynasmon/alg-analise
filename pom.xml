@@ -45,7 +45,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>br.unifor.ordenacao.Main</mainClass>
+                            <mainClass>ordenacao.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
