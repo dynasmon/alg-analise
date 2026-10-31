@@ -43,9 +43,11 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -121,8 +123,10 @@ public final class JanelaPrincipal extends JFrame {
         super("Análise de desempenho de algoritmos de ordenação");
         this.pastaResultados = pastaResultados;
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(1050, 680));
-        setSize(1340, 860);
+        // em notebooks com escala de 125% ou 150% a área útil pode ser menor que a janela
+        Rectangle tela = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+        setMinimumSize(new Dimension(Math.min(1050, tela.width), Math.min(680, tela.height)));
+        setSize(Math.min(1340, tela.width), Math.min(860, tela.height));
         setLocationRelativeTo(null);
 
         atualizacao.setRepeats(false);

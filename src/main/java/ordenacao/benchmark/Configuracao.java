@@ -29,7 +29,7 @@ public final class Configuracao {
         Configuracao c = new Configuracao();
         c.tamanhos = new int[]{10_000, 100_000, 1_000_000};
         c.tamanhosQuadraticos = new int[]{1_000, 5_000, 10_000};
-        c.threads = new int[]{1, 2, 4, 8};
+        c.threads = IntStream.of(1, 2, 4, 8).filter(t -> t <= Runtime.getRuntime().availableProcessors()).toArray();
         c.tamanhoIntervalo = 200_000;
         c.valoresMaximos = new int[]{100, 10_000, 1_000_000};
         return c;

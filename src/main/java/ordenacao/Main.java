@@ -131,7 +131,7 @@ public final class Main {
         ArquivosCsv.gravarResumo(pasta.resolve(ArquivosCsv.RESUMO), resumos);
         ArquivosCsv.gravarCrescimento(pasta.resolve(ArquivosCsv.CRESCIMENTO), crescimento);
         List<Path> figuras = Graficos.exportarFigurasRelatorio(resumos, pasta.resolve("graficos"));
-        System.out.printf("%d medições → %d linhas em %s, %d ajustes em %s, %d gráficos em %s%n",
+        System.out.printf("%d medições, %d linhas em %s, %d ajustes em %s, %d gráficos em %s%n",
                 medicoes.size(), resumos.size(), ArquivosCsv.RESUMO, crescimento.size(), ArquivosCsv.CRESCIMENTO,
                 figuras.size(), pasta.resolve("graficos"));
     }

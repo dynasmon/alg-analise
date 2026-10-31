@@ -12,7 +12,7 @@ ordenação em Java, variando o tamanho e a natureza da entrada e o número de t
 
 ## Requisitos
 
-- Java 17 ou mais recente
+- JDK 17 ou mais recente
 - Maven 3.9 (opcional, só para os testes JUnit e para gerar o jar)
 
 ## Como compilar e executar
@@ -28,6 +28,19 @@ Sem Maven:
 ./executar.sh analisar        # refaz resumo, crescimento e gráficos a partir de medicoes.csv
 ./executar.sh ajuda           # lista todas as opções
 ```
+
+No Windows, dê dois cliques em `executar.bat` para compilar e abrir a interface gráfica, ou use o terminal
+(cmd ou PowerShell):
+
+```bat
+.\executar.bat validar
+.\executar.bat benchmark
+.\executar.bat benchmark --rapido --saida teste
+.\executar.bat benchmark --threads "1,2,4"
+```
+
+No PowerShell, listas de valores precisam de aspas. Se não houver 4 GB de memória disponíveis, o script usa o
+padrão da JVM.
 
 Com Maven:
 
