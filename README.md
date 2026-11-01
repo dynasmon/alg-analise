@@ -1,8 +1,5 @@
 # Análise de algoritmos de ordenação: serial × paralelo
 
-Trabalho de Computação Paralela (Unifor). Compara as versões serial e paralela de quatro algoritmos de
-ordenação em Java, variando o tamanho e a natureza da entrada e o número de threads.
-
 | Algoritmo | Versão paralela |
 |---|---|
 | Bubble Sort | transposição par-ímpar com threads dedicadas e barreira de espera ativa |
@@ -24,20 +21,10 @@ ordenação em Java, variando o tamanho e a natureza da entrada e o número de t
 3. Dê dois cliques em `executar.bat`. Na primeira vez ele compila o código; depois abre a interface gráfica com
    os dados de `resultados/`. Se o Windows mostrar um aviso de segurança, clique em **Mais informações** e
    **Executar assim mesmo**.
-4. Para usar o terminal, abra o cmd ou o PowerShell na pasta do projeto e rode um dos comandos da tabela abaixo:
+4. Se quiser usar o terminal, abra o cmd ou o PowerShell na pasta do projeto e rode um dos comandos abaixo:
 
    ```bat
    .\executar.bat validar
-   ```
-
-### macOS e Linux
-
-1. Instale um [JDK 17 ou mais recente](https://adoptium.net/temurin/releases/), se ainda não tiver.
-2. Baixe ou clone o projeto.
-3. Na pasta do projeto, rode um dos comandos da tabela abaixo. Na primeira vez o código é compilado:
-
-   ```bash
-   ./executar.sh gui
    ```
 
 ### Comandos
@@ -61,7 +48,7 @@ No PowerShell, listas de valores precisam de aspas, como em `--threads "1,2,4"`.
 disponíveis, o `executar.bat` usa o padrão da JVM. Depois de alterar o código, rode `compilar.bat` ou
 `./compilar.sh`, porque o executar só compila quando `out/` não existe.
 
-Para medições confiáveis, rode o benchmark com o computador na tomada, sem economia de energia e com o
+Para medições confiáveis, rodar o benchmark com o computador na tomada, sem economia de energia e com o
 mínimo de programas abertos.
 
 ### Testes e jar com Maven
