@@ -15,43 +15,62 @@ ordenação em Java, variando o tamanho e a natureza da entrada e o número de t
 - JDK 17 ou mais recente
 - Maven 3.9 (opcional, só para os testes JUnit e para gerar o jar)
 
-## Como compilar e executar
+## Como executar
 
-Sem Maven:
+### Windows
 
-```bash
-./compilar.sh                 # gera out/
-./executar.sh validar         # confere se tudo ordena corretamente
-./executar.sh gui             # interface gráfica com gráficos dinâmicos
-./executar.sh benchmark       # experimentos completos (20 a 30 min)
-./executar.sh benchmark --rapido --saida teste   # versão reduzida (menos de 1 min)
-./executar.sh analisar        # refaz resumo, crescimento e gráficos a partir de medicoes.csv
-./executar.sh ajuda           # lista todas as opções
-```
+1. Instale um [JDK 17 ou mais recente](https://adoptium.net/temurin/releases/), se ainda não tiver.
+2. Baixe o projeto em **Code > Download ZIP** e extraia a pasta inteira.
+3. Dê dois cliques em `executar.bat`. Na primeira vez ele compila o código; depois abre a interface gráfica com
+   os dados de `resultados/`. Se o Windows mostrar um aviso de segurança, clique em **Mais informações** e
+   **Executar assim mesmo**.
+4. Para usar o terminal, abra o cmd ou o PowerShell na pasta do projeto e rode um dos comandos da tabela abaixo:
 
-No Windows, dê dois cliques em `executar.bat` para compilar e abrir a interface gráfica, ou use o terminal
-(cmd ou PowerShell):
+   ```bat
+   .\executar.bat validar
+   ```
 
-```bat
-.\executar.bat validar
-.\executar.bat benchmark
-.\executar.bat benchmark --rapido --saida teste
-.\executar.bat benchmark --threads "1,2,4"
-```
+### macOS e Linux
 
-No PowerShell, listas de valores precisam de aspas. Se não houver 4 GB de memória disponíveis, o script usa o
-padrão da JVM.
+1. Instale um [JDK 17 ou mais recente](https://adoptium.net/temurin/releases/), se ainda não tiver.
+2. Baixe ou clone o projeto.
+3. Na pasta do projeto, rode um dos comandos da tabela abaixo. Na primeira vez o código é compilado:
 
-Com Maven:
+   ```bash
+   ./executar.sh gui
+   ```
+
+### Comandos
+
+| Comando | O que faz |
+|---|---|
+| `gui` | abre a interface gráfica; é o padrão quando nenhum comando é informado |
+| `validar` | confere se todos os algoritmos ordenam corretamente |
+| `benchmark --saida novos-resultados` | executa os experimentos completos, de 5 a 30 min conforme o número de núcleos |
+| `benchmark --rapido --saida teste` | executa uma versão reduzida, em menos de 1 min |
+| `analisar --saida novos-resultados` | refaz resumo, crescimento e gráficos a partir de `medicoes.csv` |
+| `ajuda` | lista todas as opções |
+
+Na interface, escolha os algoritmos, a natureza dos dados e os parâmetros e clique em **Executar**. O `validar`
+deve terminar com a mensagem `Todos os algoritmos ordenaram corretamente.`
+
+Sem `--saida`, o benchmark substitui os arquivos de `resultados/`, que são os dados do relatório. Os tempos
+variam conforme a máquina.
+
+No PowerShell, listas de valores precisam de aspas, como em `--threads "1,2,4"`. Se não houver 4 GB de memória
+disponíveis, o `executar.bat` usa o padrão da JVM. Depois de alterar o código, rode `compilar.bat` ou
+`./compilar.sh`, porque o executar só compila quando `out/` não existe.
+
+Para medições confiáveis, rode o benchmark com o computador na tomada, sem economia de energia e com o
+mínimo de programas abertos.
+
+### Testes e jar com Maven
 
 ```bash
 mvn test
 mvn package
 java -Xms4g -Xmx4g -jar target/alg-analise.jar benchmark
 ```
-
-Para medições confiáveis, rode o benchmark com o computador na tomada, sem economia de energia e com o
-mínimo de programas abertos.
 
 ## Opções do benchmark
 
